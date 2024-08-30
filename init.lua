@@ -194,6 +194,11 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
+-- NOTE: PERSONAL: Custom keybind goes here
+vim.keymap.set('n', '<leader>ee', '@m', { desc = 'Error handling for Go' }) -- TODO: move this to the corresponding lsp config so that it only loads when its golang projects
+
+--
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
