@@ -194,10 +194,12 @@ vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right win
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
--- NOTE: PERSONAL: Custom keybind goes here
+-- NOTE: KEYBIND: Custom keybind goes here
 vim.keymap.set('n', '<leader>ee', '@m', { desc = 'Error handling for Go' }) -- TODO: move this to the corresponding lsp config so that it only loads when its golang projects
 
 --
+--
+-- NOTE: AUTOCOMMAND: Custom autocommand goes here
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
@@ -656,6 +658,15 @@ require('lazy').setup({
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
         'stylua', -- Used to format Lua code
+
+        -- Golang Stuff
+        'gopls',
+        'gci',
+        'goimports',
+        'golines',
+        'gofumpt',
+        'gomodifytags',
+        'gotests',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -708,6 +719,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
+        go = { 'goimports', 'golines', 'gofumpt', 'gci', 'gopls' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
