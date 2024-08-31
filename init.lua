@@ -1,4 +1,4 @@
---[[init
+--[[initinit
 
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
@@ -200,6 +200,9 @@ vim.keymap.set('n', '<leader>ee', '@m', { desc = 'Error handling for Go' }) -- T
 --
 --
 -- NOTE: AUTOCOMMAND: Custom autocommand goes here
+
+-- NOTE: OPTION: Custom Option Goes Here
+vim.opt.tabstop = 4
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
