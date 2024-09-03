@@ -203,6 +203,7 @@ vim.keymap.set('n', '<leader>ee', '@m', { desc = 'Error handling for Go' }) -- T
 
 -- NOTE: OPTION: Custom Option Goes Here
 vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`

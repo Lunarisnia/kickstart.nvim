@@ -11,13 +11,13 @@ return {
     local opts = { noremap = true, silent = true }
 
     -- Move to previous/next
-    map('n', '<C-[>', '<cmd>BufferPrevious<CR>', opts)
-    map('n', '<C-]>', '<cmd>BufferNext<CR>', opts)
+    map('n', '“', '<cmd>BufferPrevious<CR>', opts)
+    map('n', '‘', '<cmd>BufferNext<CR>', opts)
     -- Re-order to previous/next
-    map('n', '<C-{>', '<cmd>BufferMovePrevious<CR>', opts)
-    map('n', '<C-}>', '<cmd>BufferMoveNext<CR>', opts)
+    map('n', '”', '<cmd>BufferMovePrevious<CR>', opts)
+    map('n', '’', '<cmd>BufferMoveNext<CR>', opts)
     -- Close current tab
-    map('n', '<C-w>', '<cmd>BufferClose<CR>', opts)
+    map('n', '∑', '<cmd>BufferClose<CR>', opts)
   end,
   opts = {
     animation = true,
