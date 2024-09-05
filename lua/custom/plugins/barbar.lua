@@ -17,7 +17,7 @@ return {
     map('n', '”', '<cmd>BufferMovePrevious<CR>', opts)
     map('n', '’', '<cmd>BufferMoveNext<CR>', opts)
     -- Close current tab
-    map('n', '∑', '<cmd>BufferClose<CR>', opts)
+    map('n', '<C-w>', '<cmd>BufferClose<CR>', opts)
   end,
   opts = {
     animation = true,
