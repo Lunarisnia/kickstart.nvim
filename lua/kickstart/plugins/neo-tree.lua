@@ -12,6 +12,7 @@ return {
   cmd = 'Neotree',
   keys = {
     { '<leader>cd', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+    { '<leader>gs', ':Neotree git_status<CR>', desc = 'NeoTree Git Status', silent = true },
   },
   opts = {
     filesystem = {
@@ -20,6 +21,11 @@ return {
         mappings = {
           ['<leader>cd'] = 'close_window',
         },
+      },
+    },
+    git_status = {
+      window = {
+        position = 'float',
       },
     },
   },

@@ -671,6 +671,9 @@ require('lazy').setup({
         'gofumpt',
         'gomodifytags',
         'gotests',
+
+        -- C#
+        'omnisharp_mono',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
