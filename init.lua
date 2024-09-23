@@ -525,6 +525,14 @@ require('lazy').setup({
             vim.keymap.set(mode, keys, func, { buffer = event.buf, desc = 'LSP: ' .. desc })
           end
 
+          -- Rename all occurrence in a file
+          map('<leader>grn', function()
+            local old_name = vim.fn.input 'Old Text: '
+            local new_name = vim.fn.input 'New Text: '
+            local replace_command = string.format('g/%s/s//%s/gc', old_name, new_name)
+            vim.cmd(replace_command)
+          end, 'Global Rename')
+
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
           --  To jump back, press <C-t>.
