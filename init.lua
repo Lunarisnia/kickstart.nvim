@@ -1,4 +1,4 @@
---[[initinit
+--[[
 
 =====================================================================
 ==================== READ THIS BEFORE CONTINUING ====================
@@ -200,6 +200,13 @@ vim.keymap.set('n', '<leader>ee', '@m', { desc = 'Error handling for Go' }) -- T
 --
 --
 -- NOTE: AUTOCOMMAND: Custom autocommand goes here
+vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead', 'BufEnter' }, {
+  desc = 'set filetype for glsl shader files',
+  pattern = { '*.frag', '*.vert' },
+  callback = function()
+    vim.bo.filetype = 'glsl'
+  end,
+})
 
 -- NOTE: OPTION: Custom Option Goes Here
 vim.opt.tabstop = 4
@@ -638,7 +645,8 @@ require('lazy').setup({
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`tsserver`) will work just fine
-        -- tsserver = {},
+        ts_ls = {},
+        glsl_analyzer = {},
         --
 
         lua_ls = {
@@ -673,6 +681,8 @@ require('lazy').setup({
 
         -- Golang Stuff
         'gopls',
+        'glsl_analyzer',
+        'ts_ls',
         'gci',
         'goimports',
         'golines',
@@ -738,14 +748,17 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        go = { 'goimports', 'golines', 'gofumpt', 'gci', 'gopls' },
+        go = { 'goimports', 'gofumpt', 'gci', 'gopls' },
         java = { 'google-java-format' },
         cpp = { 'clang-format' },
+        c = { 'clang-format' },
+        frag = { 'glsl_analyzer' },
         -- Conform can also run multiple formatters sequentially
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        -- javascript = { "prettierd", "prettier", stop_after_first = true },
+        javascript = { 'prettierd', 'prettier', stop_after_first = true },
+        typescript = { 'prettierd', 'prettier', stop_after_first = true },
       },
     },
   },
