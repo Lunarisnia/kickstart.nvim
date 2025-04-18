@@ -208,6 +208,9 @@ vim.api.nvim_create_autocmd({ 'BufNewFile', 'BufRead', 'BufEnter' }, {
   end,
 })
 
+-- NOTE: DAP Icon Settings
+vim.fn.sign_define('DapBreakpoint', { text = '⦿', texthl = '', linehl = '', numhl = '' })
+
 -- NOTE: OPTION: Custom Option Goes Here
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
@@ -540,13 +543,28 @@ require('lazy').setup({
             vim.cmd(replace_command)
           end, 'Global Rename')
 
-          -- nvim dap mappings -----
+          -- NOTE: NVim DAP mappings -----
           map('<leader>db', function()
             vim.cmd 'DapToggleBreakpoint'
           end, 'Add breakpoint at a line')
           map('<leader>dr', function()
             vim.cmd 'DapContinue'
           end, 'Start or continue the debugger')
+          map('<leader>dt', function()
+            vim.cmd 'DapTerminate'
+          end, 'Terminate debugger')
+          map('<leader>di', function()
+            vim.cmd 'DapStepInto'
+          end, 'Step into')
+          map('<leader>do', function()
+            vim.cmd 'DapStepOver'
+          end, 'Step over')
+          map('<leader>dp', function()
+            vim.cmd 'DapStepOut'
+          end, 'Step out')
+          map('<leader>dcb', function()
+            vim.cmd 'DapClearBreakpoints'
+          end, 'Clear all breakpoints')
 
           -- Jump to the definition of the word under your cursor.
           --  This is where a variable was first declared, or where a function is defined, etc.
