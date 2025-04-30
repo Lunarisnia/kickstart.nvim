@@ -774,7 +774,7 @@ require('lazy').setup({
       end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        go = { 'goimports', 'gofumpt', 'gci', 'gopls' },
+        go = { 'goimports', 'gofmt', 'gci' },
         java = { 'google-java-format' },
         cpp = { 'clang-format' },
         c = { 'clang-format' },
