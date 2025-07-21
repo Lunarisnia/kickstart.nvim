@@ -15,6 +15,16 @@ return {
     { '<leader>gs', ':Neotree git_status<CR>', desc = 'NeoTree Git Status', silent = true },
   },
   opts = {
+    event_handlers = {
+      {
+        event = 'neo_tree_buffer_enter',
+        handler = function()
+          vim.cmd [[
+              setlocal relativenumber
+            ]]
+        end,
+      },
+    },
     filesystem = {
       window = {
         position = 'right',
